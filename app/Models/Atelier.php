@@ -29,13 +29,13 @@ class Atelier extends Model
         return $this->belongsToMany(User::class, 'ateliers_users');
     }
 
-    public function demands2ateliers(): HasMany
+    public function demands2ateliers(): BelongsToMany
     {
-        return $this->hasMany(Demand2Atelier::class);
+        return $this->belongsToMany(User::class, 'ateliers_demands');
     }
 
-    public function demandsRefused(): HasMany
+    public function demandsRefused(): BelongsToMany
     {
-        return $this->hasMany(DemandRefused::class);
+        return $this->belongsToMany(User::class, 'ateliers_demands_refused');
     }
 }

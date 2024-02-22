@@ -12,7 +12,7 @@ class FormRequestCustom extends FormRequest
     {
         throw new HttpResponseException(response()->json([
             'success' => false,
-            'message' => $validator->errors(),
+            'message' => $validator->errors()->messages(),
             'data' => []
         ], 422));
     }

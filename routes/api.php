@@ -27,6 +27,7 @@ Route::post('login', [UserController::class, 'login']);
 
 Route::get('ateliers', [AtelierController::class, 'index']);
 Route::get('ateliers/{id}', [AtelierController::class, 'show']);
+Route::post('ateliers/{id}/participate', [AtelierController::class, 'participate'])->middleware('auth:api');
 Route::post('ateliers', [AtelierController::class, 'store']);
 Route::put('ateliers/{id}', [AtelierController::class, 'update']);
 Route::delete('ateliers/{id}', [AtelierController::class, 'destroy']);

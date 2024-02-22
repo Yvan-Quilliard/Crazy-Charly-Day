@@ -54,4 +54,12 @@ class AtelierController extends Controller
         $data->delete();
         return $this->respondJson(true, 'Atelier deleted successfully', 200);
     }
+
+    public function participate(string $id)
+    {
+        $atelier = Atelier::findOrFail($id);
+        $user = auth()->user();
+        $atelier->users()->attach($user);
+        return $this->respondJson(true, 'User participated successfully', 200);
+    }
 }

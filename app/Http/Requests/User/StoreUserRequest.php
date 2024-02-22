@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\User;
+
+use App\Http\Requests\FormRequestCustom;
 
 class StoreUserRequest extends FormRequestCustom
 {

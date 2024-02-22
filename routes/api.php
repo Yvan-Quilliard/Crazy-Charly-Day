@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AtelierController;
+use App\Http\Controllers\ScorePlusController;
 use App\Http\Controllers\ThemeController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
@@ -40,3 +41,4 @@ Route::post('themes', [ThemeController::class, 'store']);
 Route::put('themes/{id}', [ThemeController::class, 'update']);
 Route::delete('themes/{id}', [ThemeController::class, 'destroy']);
 
+Route::post('scoring_plus', [ScorePlusController::class, 'scorePlus']);

@@ -24,9 +24,9 @@ class Atelier extends Model
         return $this->belongsToMany(Theme::class);
     }
 
-    public function users(): MorphToMany
+    public function users(): BelongsToMany
     {
-        return $this->morphToMany(User::class, 'atelier2user');
+        return $this->belongsToMany(User::class, 'ateliers_users');
     }
 
     public function demands2ateliers(): HasMany

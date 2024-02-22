@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreAtelierRequest;
-use App\Http\Requests\UpdateAtelierRequest;
+use App\Http\Requests\Atelier\StoreAtelierRequest;
+use App\Http\Requests\Atelier\UpdateAtelierRequest;
 use App\Models\Atelier;
 
 class AtelierController extends Controller

@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Theme;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -20,6 +21,7 @@ class AtelierFactory extends Factory
             'title' => fake()->words(3, true),
             'capacity' => fake()->numberBetween(5, 8),
             'date' => fake()->date,
+            'theme_id' => Theme::all()->random()->id,
             'description' => fake()->words(5, true)
         ];
     }

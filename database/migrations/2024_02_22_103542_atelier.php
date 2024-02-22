@@ -17,6 +17,10 @@ return new class extends Migration
             $table->integer('capacity')->nullable();
             $table->date('date')->nullable();
             $table->string('description')->nullable();
+
+            $table->foreignId('theme_id')->constrained();
+
+
             $table->timestamps();
         });
     }

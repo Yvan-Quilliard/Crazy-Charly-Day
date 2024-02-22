@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
@@ -19,9 +20,9 @@ class Atelier extends Model
         'description',
     ];
 
-    public function themes(): BelongsToMany
+    public function themes(): BelongsTo
     {
-        return $this->belongsToMany(Theme::class);
+        return $this->belongsTo(Theme::class);
     }
 
     public function users(): BelongsToMany

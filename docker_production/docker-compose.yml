@@ -1,19 +1,22 @@
 version: "3.9"
 services:
   web:
-    image: charlyback
+    image: yghore/charlyback
     restart: unless-stopped
     ports:
-      - "8080:80"
+      - "9281:80"
+    volumes:
+      - ./.env.production:/app/.env.production
   db:
-    image: mariadb:11.3
+    image: mariadb:latest
     restart: unless-stopped
+    hostname: db
     ports:
       - "3307:3306"
     environment:
       MARIADB_DATABASE: charlyday
       MARIADB_USER: charlyday
       MARIADB_PASSWORD: charlyday
-      MARIADB_ROOT_PASSWORD: root
-#    volumes:
-#      - ./data/db:/var/lib/mysql
+      MARIADB_ROOT_PASSWORD: charlyday
+    volumes:
+      - ./data/db:/var/lib/mysql

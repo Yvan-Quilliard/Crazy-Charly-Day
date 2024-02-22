@@ -72,7 +72,7 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Atelier::class, 'ateliers_demands');
     }
-
+    
     public function demandsRefused(): BelongsToMany
     {
         return $this->belongsToMany(Atelier::class, 'ateliers_demands_refused');

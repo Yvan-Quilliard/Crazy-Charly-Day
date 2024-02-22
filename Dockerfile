@@ -21,19 +21,23 @@ ENV APP_ENV production
 WORKDIR /app
 COPY ./ .
 
-RUN mv .env.production .env
 
 # Installation et configuration de votre site pour la production
 # https://laravel.com/docs/10.x/deployment#optimizing-configuration-loading
 RUN composer install --no-interaction --optimize-autoloader --no-dev
 # Generate security key
-RUN php artisan key:generate
-# Optimizing Configuration loading
+
+RUN mv ./docker_production/.env.production .env
+
 RUN php artisan config:cache
 # Optimizing Route loading
 RUN php artisan route:cache
 # Optimizing View loading
 RUN php artisan view:cache
+
+
+# Optimizing Configuration loading
+
 
 # Compilation des assets de Breeze (ou de votre site)
 RUN npm install

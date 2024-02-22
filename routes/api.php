@@ -21,17 +21,17 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::post('register', [UserController::class, 'register']);
+Route::post('login', [UserController::class, 'login']);
+//Route::post('logout', [UserController::class, 'logout']);
+
 Route::get('ateliers', [AtelierController::class, 'index']);
 Route::get('ateliers/{id}', [AtelierController::class, 'show']);
 Route::post('ateliers', [AtelierController::class, 'store']);
 Route::put('ateliers/{id}', [AtelierController::class, 'update']);
 Route::delete('ateliers/{id}', [AtelierController::class, 'destroy']);
 
-Route::get('users', [UserController::class, 'index']);
-Route::get('users/{id}', [UserController::class, 'show']);
-Route::post('users', [UserController::class, 'store']);
-Route::put('users/{id}', [UserController::class, 'update']);
-Route::delete('users/{id}', [UserController::class, 'destroy']);
+Route::get('profile', [UserController::class, 'profile'])->middleware('auth:api');
 
 Route::get('themes', [ThemeController::class, 'index']);
 Route::get('themes/{id}', [ThemeController::class, 'show']);

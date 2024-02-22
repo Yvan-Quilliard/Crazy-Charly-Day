@@ -4,11 +4,14 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
-use Laravel\Sanctum\HasApiTokens;
+use Laravel\Passport\HasApiTokens;
 
 class User extends Authenticatable
 {
@@ -26,6 +29,7 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'last_name',
         'password',
     ];
 
@@ -58,4 +62,20 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function ateliers(): BelongsToMany
+    {
+        return $this->belongsToMany(Atelier::class, 'ateliers_users');
+    }
+
+    public function demands2ateliers(): BelongsToMany
+    {
+        return $this->belongsToMany(Atelier::class, 'ateliers_demands');
+    }
+
+    public function demandsRefused(): BelongsToMany
+    {
+        return $this->belongsToMany(Atelier::class, 'ateliers_demands_refused');
+    }
+
 }

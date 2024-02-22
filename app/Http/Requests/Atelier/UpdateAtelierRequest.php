@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests;
 
-class StoreRequest extends FormRequestCustom
+class UpdateAtelierRequest extends FormRequestCustom
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -32,7 +32,6 @@ class StoreRequest extends FormRequestCustom
     public function messages(): array
     {
         return [
-            //
         ];
     }
 }

@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests;
 
-class StoreRequest extends FormRequestCustom
+class StoreThemeRequest extends FormRequestCustom
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -20,7 +20,7 @@ class StoreRequest extends FormRequestCustom
     public function rules(): array
     {
         return [
-            'name' => 'required|string|max:255',
+            //
         ];
     }
 
@@ -32,7 +32,7 @@ class StoreRequest extends FormRequestCustom
     public function messages(): array
     {
         return [
-
+            //
         ];
     }
 }

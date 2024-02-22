@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('ateliers', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->integer('capacity');
-            $table->dateTime('date');
-            $table->string('description');
+            $table->string('title')->nullable();
+            $table->integer('capacity')->nullable();
+            $table->dateTime('date')->nullable();
+            $table->string('description')->nullable();
             $table->timestamps();
         });
     }

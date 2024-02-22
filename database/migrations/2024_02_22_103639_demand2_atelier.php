@@ -12,6 +12,7 @@ return new class extends Migration {
     {
         Schema::create('ateliers_demands', function (Blueprint $table) {
             $table->id();
+            $table->integer('scoring')->nullable();
             $table->timestamps();
 
             $table->foreignId('atelier_id')->constrained();

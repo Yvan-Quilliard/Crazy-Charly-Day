@@ -12,7 +12,6 @@ return new class extends Migration {
     {
         Schema::create('ateliers_users', function (Blueprint $table) {
             $table->id();
-            $table->string('step');
             $table->timestamps();
 
             $table->foreignId('atelier_id')->constrained();

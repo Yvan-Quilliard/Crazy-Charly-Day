@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -11,7 +12,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $data = User::all();
+        return $this->respondJson(true, 'Users retrieved successfully', 200, $data);
     }
 
     /**
@@ -19,7 +21,8 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = User::create($request->all());
+        return $this->respondJson(true, 'User created successfully', 201, $data);
     }
 
     /**
@@ -27,7 +30,8 @@ class UserController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $data = User::findOrFail($id);
+        return $this->respondJson(true, 'User retrieved successfully', 200, $data);
     }
 
     /**
@@ -35,7 +39,9 @@ class UserController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $data = User::findOrFail($id);
+        $data->update($request->all());
+        return $this->respondJson(true, 'User updated successfully', 200, $data);
     }
 
     /**
@@ -43,6 +49,8 @@ class UserController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $data = User::findOrFail($id);
+        $data->delete();
+        return $this->respondJson(true, 'User deleted successfully', 200);
     }
 }

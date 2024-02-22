@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreThemeRequest;
+use App\Http\Requests\UpdateThemeRequest;
 use App\Models\Theme;
-use Illuminate\Http\Request;
 
 class ThemeController extends Controller
 {
@@ -19,7 +20,7 @@ class ThemeController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreThemeRequest $request)
     {
         $data = Theme::create($request->all());
         return $this->respondJson(true, 'Theme created successfully', 201, $data);
@@ -37,7 +38,7 @@ class ThemeController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateThemeRequest $request, string $id)
     {
         $data = Theme::findOrFail($id);
         $data->update($request->all());

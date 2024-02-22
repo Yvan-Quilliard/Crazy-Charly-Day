@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreAtelierRequest;
+use App\Http\Requests\UpdateAtelierRequest;
 use App\Models\Atelier;
-use Illuminate\Http\Request;
 
 class AtelierController extends Controller
 {
@@ -19,7 +20,7 @@ class AtelierController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreAtelierRequest $request)
     {
         $data = Atelier::create($request->all());
         return $this->respondJson(true, 'Atelier created successfully', 201, $data);
@@ -37,7 +38,7 @@ class AtelierController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateAtelierRequest $request, string $id)
     {
         $data = Atelier::findOrFail($id);
         $data->update($request->all());

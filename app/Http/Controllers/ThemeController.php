@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreThemeRequest;
-use App\Http\Requests\UpdateThemeRequest;
+use App\Http\Requests\Theme\StoreThemeRequest;
+use App\Http\Requests\Theme\UpdateThemeRequest;
 use App\Models\Theme;
 
 class ThemeController extends Controller

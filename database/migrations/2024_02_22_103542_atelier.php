@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title')->nullable();
             $table->integer('capacity')->nullable();
-            $table->dateTime('date')->nullable();
+            $table->date('date')->nullable();
             $table->string('description')->nullable();
             $table->timestamps();
         });

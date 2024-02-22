@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Atelier;
 use Illuminate\Http\Request;
 
 class AtelierController extends Controller
@@ -11,7 +12,8 @@ class AtelierController extends Controller
      */
     public function index()
     {
-        //
+        $data = Atelier::with( 'users')->get();
+        return $this->respondJson(true, 'Ateliers retrieved successfully', 200, $data);
     }
 
     /**
@@ -19,7 +21,8 @@ class AtelierController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = Atelier::create($request->all());
+        return $this->respondJson(true, 'Atelier created successfully', 201, $data);
     }
 
     /**
@@ -27,7 +30,8 @@ class AtelierController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $data = Atelier::with( 'users')->findOrFail($id);
+        return $this->respondJson(true, 'Atelier retrieved successfully', 200, $data);
     }
 
     /**
@@ -35,7 +39,9 @@ class AtelierController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $data = Atelier::findOrFail($id);
+        $data->update($request->all());
+        return $this->respondJson(true, 'Atelier updated successfully', 200, $data);
     }
 
     /**
@@ -43,6 +49,8 @@ class AtelierController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $data = Atelier::findOrFail($id);
+        $data->delete();
+        return $this->respondJson(true, 'Atelier deleted successfully', 200);
     }
 }

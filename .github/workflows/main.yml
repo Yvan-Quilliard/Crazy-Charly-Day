@@ -26,3 +26,14 @@ jobs:
         with:
           push: true
           tags: yghore/charlyback:latest
+
+      - name: Deploy to remote server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          password: ${{ secrets.SSH_PASS }}
+          script: |
+            cd /mnt/user/backcharly
+            docker pull yghore/charlyback:latest
+            docker compose restart

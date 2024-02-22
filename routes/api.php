@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\AtelierController;
+use App\Http\Controllers\ThemeController;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -18,21 +21,21 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('ateliers', 'App\Http\Controllers\AtelierController@index');
-Route::get('ateliers/{id}', 'App\Http\Controllers\AtelierController@show');
-Route::post('ateliers', 'App\Http\Controllers\AtelierController@store');
-Route::put('ateliers/{id}', 'App\Http\Controllers\AtelierController@update');
-Route::delete('ateliers/{id}', 'App\Http\Controllers\AtelierController@destroy');
+Route::get('ateliers', [AtelierController::class, 'index']);
+Route::get('ateliers/{id}', [AtelierController::class, 'show']);
+Route::post('ateliers', [AtelierController::class, 'store']);
+Route::put('ateliers/{id}', [AtelierController::class, 'update']);
+Route::delete('ateliers/{id}', [AtelierController::class, 'destroy']);
 
-Route::get('users', 'App\Http\Controllers\UserController@index');
-Route::get('users/{id}', 'App\Http\Controllers\UserController@show');
-Route::post('users', 'App\Http\Controllers\UserController@store');
-Route::put('users/{id}', 'App\Http\Controllers\UserController@update');
-Route::delete('users/{id}', 'App\Http\Controllers\UserController@destroy');
+Route::get('users', [UserController::class, 'index']);
+Route::get('users/{id}', [UserController::class, 'show']);
+Route::post('users', [UserController::class, 'store']);
+Route::put('users/{id}', [UserController::class, 'update']);
+Route::delete('users/{id}', [UserController::class, 'destroy']);
 
-Route::get('themes', 'App\Http\Controllers\ThemeController@index');
-Route::get('themes/{id}', 'App\Http\Controllers\ThemeController@show');
-Route::post('themes', 'App\Http\Controllers\ThemeController@store');
-Route::put('themes/{id}', 'App\Http\Controllers\ThemeController@update');
-Route::delete('themes/{id}', 'App\Http\Controllers\ThemeController@destroy');
+Route::get('themes', [ThemeController::class, 'index']);
+Route::get('themes/{id}', [ThemeController::class, 'show']);
+Route::post('themes', [ThemeController::class, 'store']);
+Route::put('themes/{id}', [ThemeController::class, 'update']);
+Route::delete('themes/{id}', [ThemeController::class, 'destroy']);
 

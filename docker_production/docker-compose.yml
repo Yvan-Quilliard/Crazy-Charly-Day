@@ -1,0 +1,19 @@
+version: "3.9"
+services:
+  web:
+    image: charlyback
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+  db:
+    image: mariadb:11.3
+    restart: unless-stopped
+    ports:
+      - "3307:3306"
+    environment:
+      MARIADB_DATABASE: charlyday
+      MARIADB_USER: charlyday
+      MARIADB_PASSWORD: charlyday
+      MARIADB_ROOT_PASSWORD: root
+#    volumes:
+#      - ./data/db:/var/lib/mysql

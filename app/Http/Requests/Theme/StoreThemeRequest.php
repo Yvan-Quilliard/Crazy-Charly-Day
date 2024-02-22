@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Theme;
+
+use App\Http\Requests\FormRequestCustom;
 
 class StoreThemeRequest extends FormRequestCustom
 {

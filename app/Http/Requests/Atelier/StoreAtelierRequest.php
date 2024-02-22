@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Atelier;
+
+use App\Http\Requests\FormRequestCustom;
 
 class StoreAtelierRequest extends FormRequestCustom
 {
